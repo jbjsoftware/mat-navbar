@@ -1,0 +1,220 @@
+@import '../sass/variables.scss';
+
+matx-navbar-list {
+  flex: 1 0 0px;
+  display: flex;
+  flex-flow: column;
+}
+
+.matx-navbar-list {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0 0px;
+  overflow: hidden;
+  background-color: inherit;
+}
+
+.matx-chrome-scrollbar {
+  .nav-container {
+    &::-webkit-scrollbar {
+      box-shadow: none;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 16px;
+      background-color: $matx-nav-item-active-background-color;
+      border: none;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+  }
+}
+
+
+.small-screen {
+
+  &.expanded {
+    .matx-navbar-list {
+      display: flex;
+      overflow: auto;
+    }
+  }
+
+  .matx-navbar-list {
+    flex-flow: column;
+    flex: 1 0 0px;
+    width: 100%;
+  }
+
+  .nav-container {
+    flex-flow: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .nav-list-item {
+      display: flex;
+      flex: 1 0 0px;
+      margin-right: 0;
+
+      .nav-list-item-link {
+        flex: 1 0 0px;
+        text-align: left;
+        margin-left: 4px;
+        margin-right: 4px;
+        height: 42px;
+      }
+
+      .nav-list-item-label {
+        flex: 1;
+      }
+    }
+  }
+}
+
+.nav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  matx-nav-item,
+  matx-nav-dropdown,
+  matx-nav-dropdown-item {
+    min-width: 100px;
+  }
+
+  .nav-list-item {
+    color: $matx-nav-item-color;
+    cursor: pointer;
+    margin-right: 4px;
+
+    .nav-list-item-link {
+      color: inherit;
+      text-decoration: none !important;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      padding-left: 16px;
+      padding-right: 16px;
+      height: $matx-nav-list-item-link-height;
+      border-radius: 6px;
+
+      &:focus {
+        color: $matx-nav-item-focus-color;
+      }
+
+      &.nav-list-item-link-button {
+        border: none;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: inherit;
+        text-transform: none;
+        background: transparent;
+        font-weight: inherit;
+      }
+
+      &.active {
+        background-color: $matx-nav-item-active-background-color;
+        color: $matx-nav-item-active-color;
+      }
+    }
+
+    .nav-list-item-icon {
+      font-size: 20px;
+      height: 20px;
+      width: 24px;
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    .nav-list-item-label {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    }
+  }
+
+  .nav-dropdown-container {
+    min-width: 60px;
+
+    .navlist-item {
+      display: flex;
+    }
+
+    &.active {
+      .nav-list-item {
+        background-color: $matx-nav-item-active-background-color;
+        color: $matx-nav-item-active-color;
+      }
+    }
+
+    .nav-dropdown-icon {
+      font-size: 20px;
+      height: 20px;
+      width: 20px;
+      flex-shrink: 0;
+      margin-left: 4px;
+    }
+  }
+
+  .nav-collapse-container {
+    overflow: hidden;
+  }
+
+  .nav-collapsible-submenu {
+    list-style: none;
+    padding: 0;
+
+    .nav-list-item {
+      width: 100%;
+    }
+
+    &.level-1 {
+      .nav-list-item-link {
+        padding-left: 36px;
+      }
+    }
+
+    &.level-2 {
+      .nav-list-item-link {
+        padding-left: 48px;
+      }
+    }
+  }
+
+  .nav-collapse-header {
+    &.active {
+      .nav-list-item-link-button {
+        color: $matx-nav-item-active-color;
+        background: $matx-nav-item-active-background-color;
+
+        &.expanded {
+          background: transparent;
+          color: $matx-nav-item-expanded-active-background-color;
+        }
+      }
+    }
+  }
+}
+
+.nav-dropdown-menu {
+  width: 256px;
+
+  .active {
+    background: $matx-nav-dropdown-item-active-background;
+  }
+
+  .mat-menu-item {
+    .material-icons {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<ul class='nav-container'>
+  <ng-container *ngFor='let item of navItems'>
+
+    <matx-nav-item *ngIf='!item.items' [item]='item'></matx-nav-item>
+
+    <matx-nav-dropdown *ngIf='item.items && !smallScreen' [item]='item'></matx-nav-dropdown>
+
+    <matx-nav-collapse-panel *ngIf='item.items && smallScreen' [item]='item'></matx-nav-collapse-panel>
+
+  </ng-container>
+</ul>

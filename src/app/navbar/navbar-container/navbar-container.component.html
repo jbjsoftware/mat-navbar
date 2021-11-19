@@ -1,0 +1,26 @@
+
+<ng-content select='[matx-global-header]'></ng-content>
+
+<matx-navbar-scrim *ngIf='((handset$ | async) || (tablet$ | async)) && !(hideNav$ | async)'></matx-navbar-scrim>
+
+<section class='matx-navbar-container'>
+
+  <matx-navbar
+    [navItems]='navItems'
+    [ngClass]='{
+        "small-screen": (handset$ | async) || (tablet$ | async),
+        "collapsed": (hideNav$ | async)
+      }'
+    [@navbarExpansion]='{
+      value: (!(handset$ | async) && !(tablet$ | async)) ?
+        "fullscreen" :  ((hideNav$ | async)? "collapsed": "expanded"),
+      params:{ expandedWidth: expandedWidth}
+    }'>
+  </matx-navbar>
+
+  <div class='matx-navbar-content'>
+    <ng-content select='matx-navbar-content'></ng-content>
+  </div>
+</section>
+
+<ng-content select='[matx-footer]'></ng-content>

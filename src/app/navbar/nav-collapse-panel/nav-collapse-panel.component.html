@@ -1,0 +1,34 @@
+<div class='nav-collapse-container'>
+
+  <li
+    class='nav-list-item nav-collapse-header'
+    [ngClass]='{"active": hasActiveChild(item?.path)}'
+    cdkAccordionItem
+    #panel="cdkAccordionItem"
+    expanded='false'>
+
+    <button
+      type='button'
+      class='nav-list-item-link nav-list-item-link-button'
+      [ngClass]='{"expanded": panel?.expanded}'
+      matRipple
+      (click)="panel?.toggle()">
+
+      <mat-icon class='nav-list-item-icon' *ngIf='item.icon'>{{item?.icon}}</mat-icon>
+
+      <div class='nav-list-item-label'>
+        {{item.label}}
+      </div>
+
+      <mat-icon class='nav-list-item-dropdown-icon' [@indicatorRotate]='panel?.expanded? "expanded": "collapsed"'>keyboard_arrow_down</mat-icon>
+
+    </button>
+  </li>
+
+  <ul class='nav-collapsible-submenu' [ngClass]='"level-"+level' [@bodyExpansion]='panel?.expanded? "expanded": "collapsed"'>
+
+    <matx-nav-collapse-item #collapse [items]="item?.items" [level]='level +1'>
+    </matx-nav-collapse-item>
+
+  </ul>
+</div>

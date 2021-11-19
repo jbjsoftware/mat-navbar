@@ -1,0 +1,11 @@
+@import '../sass/variables.scss';
+
+:host {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $matx-nav-scrim-background-color;
+  z-index: $matx-nav-scrim-zindex;
+}

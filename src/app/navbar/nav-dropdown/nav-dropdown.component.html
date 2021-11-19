@@ -1,0 +1,21 @@
+<div class='nav-dropdown-container' routerLinkActive='active'>
+
+  <matx-nav-dropdown-item [items]="item.items"></matx-nav-dropdown-item>
+
+  <li class='nav-list-item'>   
+      <button class='nav-list-item-link nav-list-item-link-button' type='button' matRipple
+        [matMenuTriggerFor]='childComponentMenu.childMenu' [ngClass]='{"active": hasActiveChild(item?.path)}' *ngIf='childComponentMenu?.childMenu'>
+
+        <mat-icon class='nav-list-item-icon' *ngIf='item.icon'>{{item.icon}}</mat-icon>
+
+        <div class='nav-list-item-label'>{{item.label}}</div>
+
+        <mat-icon class='nav-list-item-dropdown-icon'>arrow_drop_down</mat-icon>
+
+      </button>
+    
+  </li>
+
+ 
+
+</div>

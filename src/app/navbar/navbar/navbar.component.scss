@@ -1,0 +1,60 @@
+@import '../sass/variables.scss';
+
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 0 0 auto;
+  z-index: $matx-navbar-zindex;
+  overflow-x: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: $matx-navbar-box-shadow;
+  background-color: $matx-navbar-background-color;
+  height: $matx-navbar-height;
+}
+
+
+:host-context(.small-screen) {
+  z-index: (nth($matx-navbar-zindex, 1) + 1);
+  position: fixed;
+  height: 100%;
+
+  .matx-navbar {
+    flex-flow: column;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+:host-context(.collapsed) {
+  overflow: hidden;
+}
+
+.matx-navbar {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 1 auto;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: .5rem;
+  overflow: hidden;
+
+  .mat-toolbar {
+    background-color: $matx-navbar-background-color;
+    flex: 0 0 auto;
+  }
+
+  .navbar-close-button {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;   
+    width: 100%;
+    color: $matx-nav-item-color;   
+
+    .mat-icon-button{
+      margin: 0.5rem;
+    }
+  }
+}

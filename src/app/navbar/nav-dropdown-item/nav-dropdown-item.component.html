@@ -1,0 +1,19 @@
+<mat-menu #childMenu="matMenu" class='nav-dropdown-menu'>
+  <ng-container *ngFor='let item of items'>
+
+    <button *ngIf='!item.items' mat-menu-item [routerLink]='item.path' routerLinkActive='active'>
+      <mat-icon *ngIf='item.icon'>{{item.icon}}</mat-icon>
+      <span class='text-truncate'>{{item.label}}</span>
+    </button>
+
+    <div *ngIf='item.items'>
+      <button mat-menu-item [matMenuTriggerFor]="childComponentMenu.childMenu" [ngClass]='{"active": hasActiveChild(item?.path)}' *ngIf='childComponentMenu?.childMenu'>
+        <mat-icon *ngIf='item.icon'>{{item.icon}}</mat-icon>
+        <span class='text-truncate'>{{item.label}}</span>
+      </button>
+
+      <matx-nav-dropdown-item [items]="item?.items"></matx-nav-dropdown-item>
+    </div>
+
+  </ng-container>
+</mat-menu>

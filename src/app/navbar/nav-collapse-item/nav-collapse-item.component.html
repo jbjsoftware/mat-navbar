@@ -1,0 +1,14 @@
+<ng-container *ngFor='let item of items'>
+
+  <matx-nav-collapse-panel 
+    *ngIf='item.items' 
+    [item]='item' 
+    [level]='level'>
+  </matx-nav-collapse-panel>
+
+  <matx-nav-item 
+    *ngIf='!item.items' 
+    [item]='item'>
+  </matx-nav-item>
+
+</ng-container>

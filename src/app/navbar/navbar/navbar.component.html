@@ -1,0 +1,11 @@
+<div class='matx-navbar'>
+
+  <div class='navbar-close-button' *ngIf='(handset$ | async) || (tablet$ | async)'>
+    <button mat-icon-button (click)='closeNavbar()'>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <matx-navbar-list [navItems]='navItems' class='matx-navbar-list' [smallScreen]='(handset$ | async) || (tablet$ | async)'></matx-navbar-list>
+
+</div>

@@ -1,0 +1,14 @@
+<li class='nav-list-item'>
+
+  <a
+    class='nav-list-item-link'
+    [routerLink]='item.path'
+    routerLinkActive='active'
+    matRipple>
+
+    <mat-icon class='nav-list-item-icon'>{{item.icon}}</mat-icon>
+
+    <div class='nav-list-item-label'>{{item.label}}</div>
+
+  </a>
+</li>
